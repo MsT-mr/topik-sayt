@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇰🇷 TOPIK O'rganish</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SCRIPTS -->
+    <script src="data/config.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="data/lugat.js"></script>
+    <script src="data/grammatika.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1> 한국어</h1>
+        <p class="subtitle">서울대 1A - 2B</p>
+        <nav>
+            <button class="nav-btn active" onclick="showPage('lugat')">📚 Lug'at</button>
+            <button class="nav-btn" onclick="showPage('grammatika')">✍️ Grammatika</button>
+            <button class="nav-btn" onclick="showPage('test')">🎯 Test</button>
+            <button class="nav-btn" onclick="showPage('flashcard')">🃏 Flashcard</button>
+        </nav>
+    </header>
+
+    <!-- LUG'AT SAHIFASI -->
+    <div id="lugat" class="page">
+        <div class="page-header">
+            <h2>📚 Lug'at</h2>
+            <div class="filters">
+                <select id="kitob-select" onchange="filterLugat()">
+                    <option value="1A">1A</option>
+                    <option value="1B">1B</option>
+                    <option value="2A">2A</option>
+                    <option value="2B">2B</option>
+                </select>
+                <select id="dars-select" onchange="filterLugat()">
+                    <option value="all">Barcha darslar</option>
+                </select>
+                <input type="text" id="search" placeholder="🔍 Qidirish..." oninput="searchLugat()">
+            </div>
+        </div>
+        <div id="lugat-cards" class="cards-grid"></div>
+    </div>
+
+    <!-- GRAMMATIKA SAHIFASI -->
+    <div id="grammatika" class="page hidden">
+        <div class="page-header">
+            <h2>✍️ Grammatika</h2>
+        </div>
+        <div id="grammatika-list" class="grammatika-grid"></div>
+    </div>
+
+    <!-- TEST SAHIFASI -->
+    <div id="test" class="page hidden">
+    <div class="page-header">
+        <h2>🎯 Test</h2>
+    </div>
+    
+    <!-- BU QATOR BOR BO'LISHI KERAK -->
+    <div id="test-stats" class="test-stats hidden">
+        <div class="stat-box">
+            <span class="stat-icon">✅</span>
+            <span id="score-display">0/0</span>
+            <span class="stat-label">Score</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-icon">🔥</span>
+            <span id="streak-display">0</span>
+            <span class="stat-label">Streak</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-icon">⏱️</span>
+            <span id="timer-display">10</span>
+            <span class="stat-label">Sekund</span>
+        </div>
+    </div>
+
+    <div id="test-area">
+        <button class="start-btn" onclick="startTest()">▶️ Testni boshlash</button>
+    </div>
+</div>
+    <!-- FLASHCARD SAHIFASI -->
+    <div id="flashcard" class="page hidden">
+        <div class="page-header">
+            <h2>🃏 Flashcard</h2>
+        </div>
+        <div id="flashcard-area">
+            <button class="start-btn" onclick="startFlashcard()">▶️ Boshlash</button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="data/lugat.js"></script>
+    <script src="data/grammatika.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
