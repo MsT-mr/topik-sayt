@@ -313,5 +313,15 @@ function prevFlashcard() {
 
 // ISHGA TUSHIRISH
 window.onload = function() {
+    // Telegram Mini App sozlamalari
+    if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+        
+        // Telegram temasini olish
+        const tg = window.Telegram.WebApp;
+        document.body.style.backgroundColor = tg.backgroundColor || '#0a0a1a';
+    }
+    
     renderLugat();
 }
